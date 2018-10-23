@@ -1,15 +1,13 @@
-# DanceDanceSense
+# CloudOLight
 
-DanceDanceSense is a small wearable sensor based on an ESP8266 (NodeMCU or
-similar). It sends normalised accelerometer readings via OSC messages to a host
-computer.
+CloudOLight is the control software for a dress filled with amorphous clouds of light. The lighting pattern is controlled wirelessly via OSC messages. Two OSC endpoints control the colours and intensity of LEDs at the top and bottom of an LED array. The dress automatically interpolates everything else.
 
 
 ## Compiling:
 
 1. Install [PlatformIO for Atom](http://platformio.org/).
-2. Download or git clone DanceDance source code.
-3. Open the DanceDanceSense project.
+2. Download or git clone CloudOLight source code.
+3. Open the CloudOLight project.
 4. Edit the configuration at the top of src/main.cpp
 5. Build the project.
 6. Upload
@@ -17,16 +15,7 @@ computer.
 
 ## Hardware:
 
-[Instructions for assembling the associated hardware.](https://reprage.com/post/DanceDanceSense)
-
-
-## ToDo:
-
-* Look at triangulating multiple sensors.
-* Look at adding 9 DOF sensors for extra fidelity.
-* Look at combining bluetooth iBeacon positioning.
-* Upgrade battery connector.
-* Look at switching to the smaller D1 form-factor.
+[Techniques for diffusing light within a dress.](https://reprage.com/post/how-to-make-a-dress-filled-with-clouds-of-light)
 
 
 ## License
