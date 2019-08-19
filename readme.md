@@ -5,12 +5,11 @@ CloudOLight is the control software for a dress filled with amorphous clouds of 
 
 ## Compiling:
 
-1. Install [PlatformIO for Atom](http://platformio.org/).
+1. Install [PlatformIO](https://docs.platformio.org/en/latest/installation.html).
 2. Download or git clone CloudOLight source code.
-3. Open the CloudOLight project.
+3. Open a terminal and navigate to the source code location.
 4. Edit the configuration at the top of src/main.cpp
-5. Build the project.
-6. Upload
+4. Build the project: `$platformio run --target upload`
 
 
 ## Hardware:

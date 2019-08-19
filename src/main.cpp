@@ -33,8 +33,8 @@ const unsigned int dstPort = 8000;  // EditThis: The remote port that is listeni
 
 // Setup the LED strip.
 APA102<13, 14> ledStrip;
-const uint16_t ledCount = 81;
-const uint16_t controlCount = 18;
+const uint16_t ledCount = 45;
+const uint16_t controlCount = 10;
 rgb_color colors[ledCount];
 
 // The local listening port for UDP packets.
@@ -44,6 +44,16 @@ const unsigned int localPort = 1234;
 void setup() {
   Serial.begin(9600);
   Serial.print("WiFi");
+
+  // Illuminate a strip yellow while we are booting.
+  for (unsigned int i = 0; i < ledCount; i++) {
+    colors[i] = (rgb_color){0, 0, 0};
+
+    if (ledCount < 9) {
+      colors[i] = (rgb_color){226, 158, 21};
+    }
+  }
+  ledStrip.write(colors, ledCount, 2);
 
   // Prevent need for powercyle after upload.
   WiFi.disconnect();
@@ -62,12 +72,15 @@ void setup() {
   Udp.begin(localPort);
   Serial.println(" Connected!");
 
-  // Initialise the LED strip to be a dim white colour.
-  rgb_color colors[ledCount];
+  // Switch the indicator strip to green after we have booted.
   for (unsigned int i = 0; i < ledCount; i++) {
-     colors[i] = (rgb_color){1, 1, 1};
+    colors[i] = (rgb_color){0, 0, 0};
+
+    if (ledCount < 9) {
+      colors[i] = (rgb_color){135,180,137};
+    }
   }
-  ledStrip.write(colors, ledCount, 31);
+  ledStrip.write(colors, ledCount, 2);
 }
 
 uint8_t LERP(uint8_t left, uint8_t right, float ratio) {
@@ -100,7 +113,7 @@ void render(unsigned int s, unsigned int l, OSCMessage &msg) {
     }
   }
 
-  ledStrip.write(colors, ledCount, 31);
+  ledStrip.write(colors, ledCount, 15);
 }
 
 void updateB(OSCMessage &msg) {
