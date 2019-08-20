@@ -113,7 +113,7 @@ void render(unsigned int s, unsigned int l, OSCMessage &msg) {
     }
   }
 
-  ledStrip.write(colors, ledCount, 15);
+  ledStrip.write(colors, ledCount, 20);
 }
 
 void updateB(OSCMessage &msg) {
