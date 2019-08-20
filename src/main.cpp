@@ -49,7 +49,7 @@ void setup() {
   for (unsigned int i = 0; i < ledCount; i++) {
     colors[i] = (rgb_color){0, 0, 0};
 
-    if (ledCount < 9) {
+    if (i < 9) {
       colors[i] = (rgb_color){226, 158, 21};
     }
   }
@@ -76,8 +76,8 @@ void setup() {
   for (unsigned int i = 0; i < ledCount; i++) {
     colors[i] = (rgb_color){0, 0, 0};
 
-    if (ledCount < 9) {
-      colors[i] = (rgb_color){135,180,137};
+    if (i < 9) {
+      colors[i] = (rgb_color){135,220,137};
     }
   }
   ledStrip.write(colors, ledCount, 2);
